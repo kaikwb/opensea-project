@@ -13,6 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -47,7 +51,13 @@ public class WebSecurityConfigurerAdapter {
                 .requestMatchers("/auth/signup").permitAll()
                 .anyRequest().authenticated()
             )
-            .cors(Customizer.withDefaults())
+            .cors(cors -> cors.configurationSource(request -> {
+                CorsConfiguration configuration = new CorsConfiguration();
+                configuration.setAllowedOrigins(List.of("*"));
+                configuration.setAllowedMethods(List.of("*"));
+                configuration.setAllowedHeaders(List.of("*"));
+                return configuration;
+            }))
             .csrf(AbstractHttpConfigurer::disable)
             .authenticationManager(authenticationManager)
             .httpBasic(Customizer.withDefaults());
