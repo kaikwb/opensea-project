@@ -49,6 +49,7 @@ public class WebSecurityConfigurerAdapter {
         http
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/auth/signup").permitAll()
+                .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated()
             )
             .cors(cors -> cors.configurationSource(request -> {
