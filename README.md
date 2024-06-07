@@ -95,6 +95,11 @@ projeto.
 
 ## Endpoints
 
+Uma coleção do Postman foi disponibilizada no
+arquivo [OpenSea Project.postman_collection.json](/OpenSea Project.postman_collection.json) para facilitar a execução
+dos
+endpoints.
+
 O projeto Mar Aberto disponibiliza os seguintes endpoints:
 
 ### POST /auth/signup
@@ -105,12 +110,12 @@ Endpoint para cadastro de usuários, é necessário informar um email e senha pa
 
 ```bash
 curl --location 'http://localhost:8080/auth/signup' \
-     --header 'Content-Type: application/json' \
-     --data-raw '{
-         "username": "user",
-         "password": "password",
-         "email": "user@mail.com"
-     }'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "user",
+    "password": "password",
+    "email": "user@mail.com"
+}'
 ```
 
 #### Response
@@ -131,8 +136,8 @@ via query params como o exemplo abaixo além de informar o usuário via autentic
 #### Request
 
 ```bash
-curl --location 'http://localhost:8080/water-data?year=2018&depth=0' \
-     --header 'Authorization: Basic dXNlcjpwYXNzd29yZA=='
+curl --location 'http://localhost:8080/water-data?year=1966&depth=0' \
+--header 'Authorization: Basic dXNlcjpwYXNzd29yZA=='
 ```
 
 #### Response - 200 OK
@@ -190,15 +195,15 @@ usuário via autenticação Basic.
 #### Request
 
 ```bash
-curl --location 'http://localhost:8080/water-data/7502731' \
-     --header 'Authorization
+curl --location 'http://localhost:8080/water-data/1' \
+--header 'Authorization: Basic dXNlcjpwYXNzd29yZA=='
 ```
 
 #### Response - 200 OK
 
 ```json
 {
-  "id": 7502731,
+  "id": 1,
   "latitude": -39.9984,
   "longitude": -32.8328,
   "depth": 0,
@@ -220,28 +225,32 @@ profundidade, ano, temperatura e salinidade via body e o usuário via autentica�
 #### Request
 
 ```bash
-curl --location --request POST 'http://localhost:8080/water-data' \
-     --header 'Authorization: Basic dXNlcjpwYXNzd29yZA==' \
-     --header 'Content-Type: application/json' \
-     --data-raw '{
-         "latitude": -39.9984,
-         "longitude": -32.8328,
-         "depth": 0,
-         "year": 2018,
-         "temperature": 16.2,
-         "salinity": 35.259
-     }'
+curl --location 'http://localhost:8080/water-data' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic dXNlcjpwYXNzd29yZA==' \
+--data '{
+    "latitude": 50,
+    "longitude": 60,
+    "depth": 0,
+    "year": 2025,
+    "temperature": 16.2,
+    "salinity": 35.259,
+    "oxygen": null,
+    "phosphate": null,
+    "silicate": null,
+    "ph": null
+}'
 ```
 
 #### Response - 201 Created
 
 ```json
 {
-  "id": 7502731,
-  "latitude": -39.9984,
-  "longitude": -32.8328,
+  "id": 1,
+  "latitude": 50,
+  "longitude": 60,
   "depth": 0,
-  "year": 2018,
+  "year": 2025,
   "temperature": 16.2,
   "salinity": 35.259,
   "oxygen": null,
@@ -252,34 +261,39 @@ curl --location --request POST 'http://localhost:8080/water-data' \
 ```
 
 ### PUT /water-data/{id}
+
 Endpoint para atualizar um dado de qualidade da água, é necessário informar o id do dado via path param e os dados de
 latitude, longitude, profundidade, ano, temperatura e salinidade via body e o usuário via autenticação Basic.
 
 #### Request - 200 OK
 
 ```bash
-curl --location --request PUT 'http://localhost:8080/water-data/7502731' \
-        --header 'Authorization: Basic dXNlcjpwYXNzd29yZA==' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{
-            "latitude": -39.9984,
-            "longitude": -32.8328,
-            "depth": 0,
-            "year": 2018,
-            "temperature": 16.2,
-            "salinity": 35.259
-        }'
+curl --location --request PUT 'http://localhost:8080/water-data/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic dXNlcjpwYXNzd29yZA==' \
+--data '{
+    "latitude": 50,
+    "longitude": 60,
+    "depth": 0,
+    "year": 2026,
+    "temperature": 16.2,
+    "salinity": 35.259,
+    "oxygen": null,
+    "phosphate": null,
+    "silicate": null,
+    "ph": null
+}'
 ```
 
 #### Response - 200 OK
 
 ```json
 {
-  "id": 7502731,
-  "latitude": -39.9984,
-  "longitude": -32.8328,
+  "id": 1,
+  "latitude": 50,
+  "longitude": 60,
   "depth": 0,
-  "year": 2018,
+  "year": 2026,
   "temperature": 16.2,
   "salinity": 35.259,
   "oxygen": null,
@@ -290,14 +304,15 @@ curl --location --request PUT 'http://localhost:8080/water-data/7502731' \
 ```
 
 ### DELETE /water-data/{id}
+
 Endpoint para deletar um dado de qualidade da água, é necessário informar o id do dado via path param e o usuário via
 autenticação Basic.
 
 #### Request
 
 ```bash
-curl --location --request DELETE 'http://localhost:8080/water-data/7502731' \
-        --header 'Authorization: Basic
+curl --location --request DELETE 'http://localhost:8080/water-data/1' \
+--header 'Authorization: Basic dXNlcjpwYXNzd29yZA=='
 ```
 
 #### Response - 204 No Content

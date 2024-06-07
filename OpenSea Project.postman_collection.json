@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "f63c78e8-8cf4-45ce-9cfe-5a998a74947d",
+		"name": "OpenSea Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12305920"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"password\",\n    \"email\": \"user@mail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{http_schema}}://{{api_host}}/auth/signup",
+							"protocol": "{{http_schema}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Water Data",
+			"item": [
+				{
+					"name": "Get Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{http_schema}}://{{api_host}}/water-data?year=1966&depth=0",
+							"protocol": "{{http_schema}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"water-data"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "1966"
+								},
+								{
+									"key": "depth",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{http_schema}}://{{api_host}}/water-data/1",
+							"protocol": "{{http_schema}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"water-data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"latitude\": 50,\n    \"longitude\": 60,\n    \"depth\": 0,\n    \"year\": 2025,\n    \"temperature\": 16.2,\n    \"salinity\": 35.259,\n    \"oxygen\": null,\n    \"phosphate\": null,\n    \"silicate\": null,\n    \"ph\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{http_schema}}://{{api_host}}/water-data",
+							"protocol": "{{http_schema}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"water-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"latitude\": 50,\n    \"longitude\": 60,\n    \"depth\": 0,\n    \"year\": 2026,\n    \"temperature\": 16.2,\n    \"salinity\": 35.259,\n    \"oxygen\": null,\n    \"phosphate\": null,\n    \"silicate\": null,\n    \"ph\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{http_schema}}://{{api_host}}/water-data/1",
+							"protocol": "{{http_schema}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"water-data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{http_schema}}://{{api_host}}/water-data/1",
+							"protocol": "{{http_schema}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"water-data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_host",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "http_schema",
+			"value": "http",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "user",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "password",
+			"type": "string"
+		}
+	]
+}
