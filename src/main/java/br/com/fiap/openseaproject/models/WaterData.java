@@ -10,6 +10,24 @@ import jakarta.persistence.*;
             name = "uk_water_data",
             columnNames = {"latitude", "longitude", "depth", "year"}
         )
+    },
+    indexes = {
+        @Index(
+            name = "idx_water_data_longitude",
+            columnList = "latitude"
+        ),
+        @Index(
+            name = "idx_water_data_latitude",
+            columnList = "longitude"
+        ),
+        @Index(
+            name = "idx_water_data_depth",
+            columnList = "depth"
+        ),
+        @Index(
+            name = "idx_water_data_year",
+            columnList = "year"
+        )
     }
 )
 public class WaterData {
