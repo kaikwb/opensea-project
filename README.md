@@ -96,7 +96,7 @@ projeto.
 ## Endpoints
 
 Uma coleção do Postman foi disponibilizada no
-arquivo [OpenSea Project.postman_collection.json](/OpenSea Project.postman_collection.json) para facilitar a execução
+arquivo [OpenSeaProject.postman_collection.json](/OpenSeaProject.postman_collection.json) para facilitar a execução
 dos
 endpoints.
 
