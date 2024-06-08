@@ -99,7 +99,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"latitude\": 50,\n    \"longitude\": 60,\n    \"depth\": 0,\n    \"year\": 2025,\n    \"temperature\": 16.2,\n    \"salinity\": 35.259,\n    \"oxygen\": null,\n    \"phosphate\": null,\n    \"silicate\": null,\n    \"ph\": null\n}",
+							"raw": "{\n    \"latitude\": 60,\n    \"longitude\": 60,\n    \"depth\": 0,\n    \"year\": 2026,\n    \"temperature\": 16.2,\n    \"salinity\": 35.259,\n    \"oxygen\": null,\n    \"phosphate\": null,\n    \"silicate\": null,\n    \"ph\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -126,7 +126,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"latitude\": 50,\n    \"longitude\": 60,\n    \"depth\": 0,\n    \"year\": 2026,\n    \"temperature\": 16.2,\n    \"salinity\": 35.259,\n    \"oxygen\": null,\n    \"phosphate\": null,\n    \"silicate\": null,\n    \"ph\": null\n}",
+							"raw": "{\n    \"latitude\": 60,\n    \"longitude\": 60,\n    \"depth\": 100,\n    \"year\": 2026,\n    \"temperature\": 16.2,\n    \"salinity\": 35.259,\n    \"oxygen\": null,\n    \"phosphate\": null,\n    \"silicate\": null,\n    \"ph\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -209,12 +209,12 @@
 	"variable": [
 		{
 			"key": "api_host",
-			"value": "localhost:8080",
+			"value": "opensea-project-api.azurewebsites.net",
 			"type": "string"
 		},
 		{
 			"key": "http_schema",
-			"value": "http",
+			"value": "https",
 			"type": "string"
 		},
 		{
